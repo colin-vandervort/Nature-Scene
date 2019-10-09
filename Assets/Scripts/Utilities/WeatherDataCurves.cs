@@ -29,5 +29,16 @@ public class WeatherData
 public class WeatherDataCurves : MonoBehaviour
 {
     [SerializeField]
-    private CloudCoverage[] cloudCoverageCurves;
+    public CloudCoverage[] cloudCoverageCurves;
+
+    private static WeatherDataCurves instance;
+    public static WeatherDataCurves GetInstance()
+    {
+        return instance;
+    }
+
+    private void Awake()
+    {
+        instance = this;
+    }
 }

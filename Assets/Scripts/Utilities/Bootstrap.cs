@@ -39,13 +39,16 @@ public class Bootstrap : MonoBehaviour
             Entity entity = seasonManagerArray[i];
             entityManager.SetComponentData(entity, new EnvironmentManager
             {
-                cloudiness = 71f,    //71% cloud coverage -- average on Jan 1st according to weatherspark
-                month = 0,           //January
-                raininess = 48f,     //The heaviness of rain. Jan = 48, Feb = 44, Mar = 36, Apr = 32, May = 34, Jun = 28, Jul = 24, Aug = 28, Sep = 40, Oct = 48, Nov = 56, Dec = 52
-                temperature = 37f,   //Temperature at the start of the day.
-                timeOfDay = 0f,      //Midnight in hours
-                windDirection = 85f, //85% chance of blowing south
-                windiness = 5f       //5mph wind averages in January
+                cloudiness = 71f,     //71% cloud coverage -- average on Jan 1st according to weatherspark
+                month = 0,            //January
+                raininess = 48f,      //The heaviness of rain. Jan = 48, Feb = 44, Mar = 36, Apr = 32, May = 34, Jun = 28, Jul = 24, Aug = 28, Sep = 40, Oct = 48, Nov = 56, Dec = 52
+                temperature = 37f,    //Temperature at the start of the day.
+                timeOfDay = 0f,       //Midnight in hours
+                windDirection = 85f,  //85% chance of blowing south
+                windiness = 5f,       //5mph wind averages in January
+                intervalCounter = 3f, //3f = one complete interval
+                intervalMet = false,  //Doesn't matter which way we start because the counter should set this if it starts from 3f
+                currentCloudinessTarget = 71f,
             });
         }
 
