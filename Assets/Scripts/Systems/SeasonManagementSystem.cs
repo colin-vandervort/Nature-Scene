@@ -2,14 +2,11 @@
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
-using Unity.Mathematics;
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 public class SeasonManagementSystem : JobComponentSystem
 {
-    //[BurstCompile]
+    [BurstCompile]
     public struct SeasonManagementJob : IJobForEach<EnvironmentManager>
     {
         public float dT;
@@ -26,10 +23,9 @@ public class SeasonManagementSystem : JobComponentSystem
                     environmentManager.month -= 12;  //Reset month
                 }
             }
-
-
         }
     }
+
     protected override JobHandle OnUpdate(JobHandle inputDeps)
     {
         var job = new SeasonManagementJob

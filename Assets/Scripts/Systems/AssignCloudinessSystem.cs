@@ -10,7 +10,7 @@ public class AssignCloudinessSystem : JobComponentSystem
 {
     //By month, to do: Raininess, Temperature, Windiness, Wind direction
 
-    //[BurstCompile]
+    [BurstCompile]
     public struct AssignCloudinessJob : IJobForEach<EnvironmentManager>
     {
         public float macroRNG;
@@ -38,9 +38,7 @@ public class AssignCloudinessSystem : JobComponentSystem
                 else
                     environmentManager.currentCloudinessTarget = 75f + microRNG;
             }
-            environmentManager.cloudiness = math.lerp(environmentManager.cloudiness, environmentManager.currentCloudinessTarget, dT * (1f / 45f));//adjust for rate of change of clouds. 1/6th the rate of change of hours.
-
-            Debug.Log(environmentManager.cloudiness);
+            environmentManager.cloudiness = math.lerp(environmentManager.cloudiness, environmentManager.currentCloudinessTarget, dT * (1f / 45f)); //adjust for rate of change of clouds. 1/6th the rate of change of hours.
         }
     }
 
