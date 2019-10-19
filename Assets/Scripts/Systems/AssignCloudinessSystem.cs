@@ -8,8 +8,6 @@ using Unity.Mathematics;
 [UpdateAfter(typeof(AssignCurrentCurvesSystem))]
 public class AssignCloudinessSystem : JobComponentSystem
 {
-    //By month, to do: Raininess, Temperature, Windiness, Wind direction
-
     [BurstCompile]
     public struct AssignCloudinessJob : IJobForEach<EnvironmentManager>
     {

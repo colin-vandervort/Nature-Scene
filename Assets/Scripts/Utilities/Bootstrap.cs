@@ -12,9 +12,19 @@ public class Bootstrap : MonoBehaviour
     public Mesh testAnimalMesh;
     public Material testAnimalMaterial;
 
+    public Entity environmentManager;
+
+    private static Bootstrap instance;
+    public static Bootstrap GetInstance()
+    {
+        return instance;
+    }
+
     //Kick off the systems
     private void Awake()
     {
+        instance = this;
+
         EntityManager entityManager = World.Active.EntityManager;
 
         EntityArchetype seasonManagerArchetype = entityManager.CreateArchetype(
@@ -49,8 +59,13 @@ public class Bootstrap : MonoBehaviour
                 intervalCounter = 3f, //3f = one complete interval
                 intervalMet = false,  //Doesn't matter which way we start because the counter should set this if it starts from 3f
                 currentCloudinessTarget = 71f,
+                displayMonth = 11,
+                displayTime = 21f
             });
         }
+
+        if (seasonManagerArray.Length > 0)
+            environmentManager = seasonManagerArray[0];
 
         for(int i = 0; i < testAnimalArray.Length; i++)
         {
