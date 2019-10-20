@@ -59,8 +59,11 @@ public class Bootstrap : MonoBehaviour
                 intervalCounter = 3f, //3f = one complete interval
                 intervalMet = false,  //Doesn't matter which way we start because the counter should set this if it starts from 3f
                 currentCloudinessTarget = 71f,
+                currentRaininessTarget = 56f,
                 displayMonth = 11,
-                displayTime = 21f
+                displayTime = 21f,
+                currentTemperatureTarget = 40f,
+                currentTenToNinetyPercentileSpread = 9f
             });
         }
 

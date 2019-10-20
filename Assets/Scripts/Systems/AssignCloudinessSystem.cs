@@ -20,9 +20,6 @@ public class AssignCloudinessSystem : JobComponentSystem
         {
             if (environmentManager.intervalMet)
             {
-                environmentManager.intervalMet = false;
-                environmentManager.intervalCounter -= 3f;
-
                 float currentRandomCloudIndex = macroRNG;
 
                 if (environmentManager.currentClearNode >= currentRandomCloudIndex)

@@ -20,6 +20,16 @@ public class AssignCurrentCurvesSystem : JobComponentSystem
                 environmentManager.currentMostlyClearNode = cloudCoverage.mostlyClear.Evaluate(environmentManager.timeOfDay);
                 environmentManager.currentPartlyCloudyNode = cloudCoverage.partlyCloudy.Evaluate(environmentManager.timeOfDay);
                 environmentManager.currentMostlyCloudyNode = cloudCoverage.mostlyCloudy.Evaluate(environmentManager.timeOfDay);
+
+                Raininess raininess = WeatherDataCurves.GetInstance().rainfallData[environmentManager.month];
+
+                environmentManager.rainfallChance = raininess.rainfallChance;
+                environmentManager.rainfallQuantity = raininess.rainfallHeaviness;
+
+                Temperature temperature = WeatherDataCurves.GetInstance().temperatureData[environmentManager.month];
+
+                environmentManager.currentTemperatureTarget = temperature.averageTemperature.Evaluate(environmentManager.timeOfDay);
+                environmentManager.currentTenToNinetyPercentileSpread = temperature.tenToNinetyPercentileSpread.Evaluate(environmentManager.timeOfDay);
             }
         }
     }

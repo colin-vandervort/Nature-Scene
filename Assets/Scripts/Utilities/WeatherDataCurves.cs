@@ -13,6 +13,23 @@ public class CloudCoverage
     //If none of these, overcast.
 }
 
+[System.Serializable]
+public class Raininess
+{
+    public string month;
+    public float rainfallChance;
+    public float rainfallHeaviness;
+}
+
+[System.Serializable]
+public class Temperature
+{
+    public string month;
+    public AnimationCurve averageTemperature;
+    public AnimationCurve tenToNinetyPercentileSpread;
+}
+
+
 public class WeatherData
 {
     public CloudCoverage cloudCoverage;
@@ -30,6 +47,12 @@ public class WeatherDataCurves : MonoBehaviour
 {
     [SerializeField]
     public CloudCoverage[] cloudCoverageCurves;
+
+    [SerializeField]
+    public Raininess[] rainfallData;
+
+    [SerializeField]
+    public Temperature[] temperatureData;
 
     private static WeatherDataCurves instance;
     public static WeatherDataCurves GetInstance()

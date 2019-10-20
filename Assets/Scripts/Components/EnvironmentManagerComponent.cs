@@ -15,7 +15,14 @@ public struct EnvironmentManager : IComponentData
 
     public float intervalCounter; //Used to track weather patern interval adjustments
     public bool intervalMet;      //Used to mark a ready interval
-    public float currentCloudinessTarget; //Used to track the current float value for the cloudiness target
+
+    public float currentCloudinessTarget;  //Used to track the current float value for the cloudiness target
+    public float currentRaininessTarget;   //Used to track the current float value for the raininess target
+    public float currentTemperatureTarget; //Used to track the current float value for the temperature target
+    public float currentTenToNinetyPercentileSpread; //Used to track the current float value for the 10th to 90th percentile temperature spread values. It can be this value up or this value down.
+
+    public float rainfallChance;   //Used to track rainfall chance
+    public float rainfallQuantity; //Used to track rainfall heaviness
 
     //Used to store frame by frame cloudiness node reference points
     public float currentClearNode;
